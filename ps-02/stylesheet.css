@@ -1,20 +1,27 @@
 ul {
   list-style-type: none;
-  margin-left: 0.5em;
+  margin-left: -20px;
 }
+
+ol {
+  list-style-type: upper-latin;
+  margin: 10px;
+}
+
 
 a:link {
   text-decoration: none;
-  color: #292727;
+  color: #8b675e;
   font-family: sans-serif;
 }
 
 a:hover {
   color: #423A35;
+  text-decoration: underline;
 }
 
 a:visited {
-  color: #C98263;
+  color: #b26e6e;
 }
 
 p {
@@ -24,10 +31,11 @@ p {
   line-height: 15pt
 }
 
+p,
 h1,
 h2,
 h3 {
-  color: #423a35
+  color: #393939;
 }
 
 h1 {
@@ -48,4 +56,9 @@ h3 {
   font-size: 12pt;
   font-family: sans-serif;
   font-weight: lighter;
+}
+
+body {
+  background-color: #f6e9ca;
+  margin: 20px
 }

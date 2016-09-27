@@ -5,7 +5,8 @@ ul {
 
 .bcard {
   border: dotted 1.5px #9a9a9a;
-  width: 100%
+  width: 100%;
+  background-color: #f6e9ca;
 }
 
 .magic {
