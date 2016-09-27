@@ -1,0 +1,41 @@
+ul {
+  list-style-type: none;
+  margin-left: 0.5em;
+}
+
+a:link {
+  text-decoration: none;
+  color: darkgrey;
+  font-family: sans-serif;
+}
+
+a:hover {
+  color: grey;
+}
+
+p {
+  text-size: 20pt;
+  font-family: sans-serif;
+  font-weight: lighter;
+  line-height: 15pt
+}
+
+h1 {
+  text-size: 20pt;
+  font-family: sans-serif;
+  font-weight: lighter;
+  line-height: 25pt
+}
+
+h2 {
+  font-size: 20pt;
+  font-family: sans-serif;
+  font-weight: lighter;
+  line-height: 8pt;
+}
+
+h3 {
+  font-size: 12pt;
+  font-family: sans-serif;
+  font-weight: lighter;
+}
