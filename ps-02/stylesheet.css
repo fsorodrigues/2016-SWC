@@ -5,23 +5,33 @@ ul {
 
 a:link {
   text-decoration: none;
-  color: darkgrey;
+  color: #292727;
   font-family: sans-serif;
 }
 
 a:hover {
-  color: grey;
+  color: #423A35;
+}
+
+a:visited {
+  color: #C98263;
 }
 
 p {
-  text-size: 20pt;
+  font-size: 16pt;
   font-family: sans-serif;
   font-weight: lighter;
   line-height: 15pt
 }
 
+h1,
+h2,
+h3 {
+  color: #423a35
+}
+
 h1 {
-  text-size: 20pt;
+  font-size: 24pt;
   font-family: sans-serif;
   font-weight: lighter;
   line-height: 25pt
