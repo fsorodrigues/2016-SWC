@@ -36,7 +36,7 @@ for (var y = 1 ; y <= 334; y = y + 2) {
     ctx.moveTo(x,y);
     ctx.lineTo(x*5,y*2);
     ctx.strokeStyle = "hsla(0,10%,10%,1)";
-    ctx.strokeStyle = getColor(0,30,random,random/100)
+    ctx.strokeStyle = getColor(0,10,random,random/100)
     ctx.stroke();
 // }
 }
