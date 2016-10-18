@@ -105,6 +105,7 @@ h1 {
   color: #4c4c4c;
   margin-top: 0;
   margin-bottom: 0.4em;
+  font-variant-numeric: lining-nums;
 }
 
 h2 {
