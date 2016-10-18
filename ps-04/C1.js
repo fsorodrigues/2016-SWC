@@ -1,5 +1,5 @@
 var canvas = document.getElementById('canvas4');
-var ctx = canvas4.getContext('2d');
+var ctx = canvas.getContext('2d');
 //
 // ctx.moveTo(1,1);
 // ctx.lineTo(100,100);

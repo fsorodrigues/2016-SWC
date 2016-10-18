@@ -1,5 +1,5 @@
 var canvas = document.getElementById('canvas3');
-var drawingPad = canvas3.getContext('2d');
+var drawingPad = canvas.getContext('2d');
 drawingPad.fillStyle = "hsla(0,10%,10%,1)";
 
 for (var x = 0 ; x <= 400; x++) {
@@ -11,7 +11,6 @@ for (var x = 0 ; x <= 400; x++) {
 
 for (var x = 0 ; x <= 400; x++) {
   for (var y = 0 ; y <= 400; y++) {
-    randomLightness = Math.random();
   drawingPad.fillStyle = "hsla(0,10%,60%,0.5)";
   drawingPad.fillRect(x*10, y*10, 4, 4);
 }

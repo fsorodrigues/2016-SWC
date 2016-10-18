@@ -16,14 +16,21 @@ var getColor = function(hue, saturation, lightness, alpha) {
 };
 
 var random = 0;
+var randomColor = 0;
+
 
 for (var x = 10 ; x <= 356; x = x + 11) {
-    var y = 20
-    random = Math.random() * 150;
+    random = Math.random() * 200;
+    randomColor = Math.random() * 100
+    var y = 10 + x/800*random
+
+    randomColor =  Math.random() * 100;
+    ctx.strokeStyle = getColor(randomColor,0,randomColor,0.8);
+    ctx.beginPath();
     ctx.moveTo(x,y);
-    ctx.lineTo(x,y*15);
-    ctx.strokeStyle = getColor(0,10,random,random/150)
+    ctx.lineTo(x,y+350);
     ctx.stroke();
+    ctx.lineWidth = x/(y*2.5);
 }
 
 

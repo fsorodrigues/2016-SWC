@@ -1,5 +1,5 @@
 var canvas = document.getElementById('canvas1');
-var drawingPad = canvas1.getContext('2d');
+var drawingPad = canvas.getContext('2d');
 
 for (var x = 0.25 ; x <= 325; x++) {
   for (var y = 0.25 ; y <= 325; y++) {
