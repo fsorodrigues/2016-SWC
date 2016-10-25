@@ -21,23 +21,6 @@ var drawImage = function(filename, ctx, x, y) {
   });
 }
 
-// var drawImage = function(filename, ctx, x, y) {
-//   var img = document.createElement("img");
-//   img.src = "torso.jpg";
-//   img.addEventListener("load", function() {
-//     ctx.drawImage(img, x, y);
-//   });
-// }
-//
-// var drawImage = function(filename, ctx, x, y) {
-//   var img = document.createElement("img");
-//   img.src = "legs.jpg";
-//   img.addEventListener("load", function() {
-//     ctx.drawImage(img, x, y);
-//   });
-// }
-
-
 fsorodrigues.drawGrid = function(ctx) {
   ctx.beginPath();
   ctx.moveTo(x1,y0);
@@ -56,7 +39,7 @@ fsorodrigues.drawGrid = function(ctx) {
   ctx.lineTo(x3,y2);
   ctx.stroke();
 }
-//
+
 // fsorodrigues.drawArm = function(ctx, left) {
 //
 // };
