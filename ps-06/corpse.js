@@ -54,21 +54,21 @@ fsorodrigues.drawTop = function(ctx) {
   // ctx.beginPath();
   // ctx.arc(horizontalCenter, 120, 120, 0, circleDegrees);
   // ctx.fill();
-  drawImage('https://fsorodrigues.github.io/2016-SWC/ps-06/head.jpg', ctx, 0, 0);
+  drawImage('//fsorodrigues.github.io/2016-SWC/ps-06/head.jpg', ctx, 0, 0);
 };
 
 fsorodrigues.drawMiddle = function(ctx) {
   // fsorodrigues.drawArm(ctx, true);
   // fsorodrigues.drawArm(ctx, false);
   // draw the rest of the body...
-  drawImage('https://fsorodrigues.github.io/2016-SWC/ps-06/torso.jpg', ctx, 0, 240);
+  drawImage('//fsorodrigues.github.io/2016-SWC/ps-06/torso.jpg', ctx, 0, 240);
 
 };
 
 fsorodrigues.drawBottom = function(ctx) {
   // fsorodrigues.drawLeg(ctx, true);
   // fsorodrigues.drawLeg(ctx, false);
-  drawImage('https://fsorodrigues.github.io/2016-SWC/ps-06/legs.jpg', ctx, 0, 480);
+  drawImage('//fsorodrigues.github.io/2016-SWC/ps-06/legs.jpg', ctx, 0, 480);
 };
 
 fsorodrigues.drawCorpse = function(ctx) {
