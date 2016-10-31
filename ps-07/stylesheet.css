@@ -96,6 +96,7 @@ h1 {
   line-height: 1em;
   margin-top: 0;
   color: #4c4c4c;
+  font-variant-numeric: lining-nums;
 }
 
 .title {
