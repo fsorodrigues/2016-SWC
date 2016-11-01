@@ -138,14 +138,54 @@ body {
 
 svg {
   background-color: #E1E2E5;
-  padding-left: 5%;
+  padding-left: 6%;
   padding-right: 1%;
-  padding-bottom: 5%;
+  padding-bottom: 6%;
   padding-top: 2%;
-  -moz-transform: scaleY(-1);
+  /*-moz-transform: scaleY(-1);
   -o-transform: scaleY(-1);
   -webkit-transform: scaleY(-1);
   transform: scaleY(-1);
   filter: FlipV;
-  -ms-filter: "FlipV";
+  -ms-filter: "FlipV";*/
+}
+
+.yAxis, .xAxis {
+  stroke-width: 0.8;
+  stroke: black;
+}
+.label {
+  font-family: 'Raleway', Verdana, sans-serif;
+  font-size: 0.8em;
+}
+
+.yAxisLabel{
+  font-family: 'Raleway', Verdana, sans-serif;
+  font-size: 1.2em;
+
+}
+
+.xAxisLabel {
+  font-family: 'Raleway', Verdana, sans-serif;
+  font-size: 1.2em;
+}
+
+.credits {
+  font-family: 'Raleway', Verdana, sans-serif;
+  font-size: 0.6em;
+  text-decoration: underline;
+  font-variant: small-caps;
+  font-variant-numeric: lining-nums;
+}
+
+.signature {
+  font-family: 'Raleway', Verdana, sans-serif;
+  font-size: 0.6em;
+  text-decoration: underline;
+  font-variant-numeric: lining-nums;
+}
+
+.data:hover {
+  stroke: black;
+  stroke-width: 0.8pt;
 }
