@@ -57,4 +57,4 @@ function startAnimation() {
 
 
 }
-// setInterval(startAnimation, 100);
+setInterval(startAnimation, 100);
