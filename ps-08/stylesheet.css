@@ -1,0 +1,147 @@
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  width: 90vw;
+  height: auto;
+  margin-top: 0;
+}
+
+.header {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+
+.content {
+  flex-grow: 8;
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+
+.test {
+  display:flex;
+  flex-direction: row;
+}
+
+.img_container {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+
+.text_container {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 100px;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: -20px;
+  margin-bottom: 1em;
+}
+
+ol {
+  list-style-type: upper-latin;
+  margin: 0;
+}
+
+a:link {
+  text-decoration: none;
+  color: #8b675e;
+  font-family: 'Raleway', Verdana, sans-serif;
+}
+
+a:hover {
+  color: #423A35;
+  text-decoration: underline;
+  font-family: 'Raleway', Verdana, sans-serif;
+}
+
+a:visited {
+  color: #b26e6e;
+  font-family: 'Raleway', Verdana, sans-serif;
+}
+
+.backbutton {
+  font-size: 0.6em;
+  font-weight: lighter;
+  line-height: 15pt
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  color: #393939;
+  font-family: 'Raleway', Verdana, sans-serif;
+  line-height: 1em;
+}
+
+p {
+  font-size: 0.95em;
+  font-weight: lighter;
+  line-height: 1.6em;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 1em;
+  margin-top: 0;
+  color: #4c4c4c;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 600;
+  font-family: 'Raleway', Verdana, sans-serif;
+  color: #4c4c4c;
+  margin-top: 0;
+  margin-bottom: 0.4em;
+  font-variant-numeric: lining-nums;
+}
+
+h2 {
+  font-size: 1em;
+  font-weight: lighter;
+  line-height: 8pt;
+  font-variant: small-caps;
+  margin-top: 10%;
+}
+
+h3 {
+  font-size: 0.75em;
+  font-weight: lighter;
+
+}
+
+h4 {
+  font-size: 0.75em;
+  font-weight: lighter;
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+body {
+  background-color: #f0e4d5;
+  margin: 20px;
+  display: flex;
+}
+
+img {
+  /*height: 40%;*/
+  width:75%;
+}
+
+#canvas {
+        border: 1px dotted #4c4c4c;
+        width: auto;
+        background-color: hsla(0, 5%, 100%, 1);
+}
