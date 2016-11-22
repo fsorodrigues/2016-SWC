@@ -1,0 +1,31 @@
+opponent,division,hrsNum,gamesAgainst
+Red Sox,AL East,4,25
+Orioles,AL East,55,247
+Blue Jays,AL East,62,251
+Yankees,AL East,53,257
+Rays,AL East,53,258
+Indians,AL Central,27,142
+Tigers,AL Central,36,129
+Royals,AL Central,21,127
+White Sox,AL Central,28,139
+Twins,AL Central,21,73
+Rangers,AL West,33,129
+Mariners,AL West,30,134
+Astros,AL West,7,35
+Angels,AL West,32,144
+Athletics,AL West,23,140
+Nationals,NL East,4,10
+Mets,NL East,3,12
+Marlins,NL East,11,22
+Phillies,NL East,9,41
+Braves,NL East,8,34
+Cubs,NL Central,4,16
+Cardinals,NL Central,1,22
+Pirates,NL Central,0,11
+Brewers,NL Central,5,20
+Reds,NL Central,0,8
+Dodgers,NL West,2,9
+Giants,NL West,3,14
+Rockies,NL West,2,20
+Diamondbacks,NL West,4,11
+Padres,NL West,0,13
