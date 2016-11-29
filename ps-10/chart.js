@@ -78,10 +78,6 @@ function radiusToR(d) {
   return d.radius;
 }
 
-function fillColor(d) {
-  return makeColor(d);
-}
-
 var scatterPlots = svg.selectAll("circle")
                       .data(mlb)
                       .enter()
@@ -92,7 +88,7 @@ var attributes = scatterPlots.attr("cx", gamesToX)
                              .attr("r", radius)
                              .style("stroke", "black")
                              .style("stroke-width", "0.2pt")
-                             .style("fill", fillColor);
+                             .style("fill", makeColor);
 
  var tooltip = d3.select(".chart_container").append("div")
                                 .attr("class", "tooltip")

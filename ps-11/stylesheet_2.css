@@ -22,22 +22,12 @@
   flex-basis: 100px;
 }
 
-.action_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 500px;
-}
-
-.action_button {
-  font-size: 0.6em;
-  font-weight: lighter;
-  line-height: 15pt
-}
-
-.chart_container {
+.test {
   display:flex;
   flex-direction: row;
+}
+
+.img_container {
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 100px;
@@ -47,7 +37,6 @@
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: 100px;
-  margin-top: 10pt
 }
 
 ul {
@@ -107,7 +96,6 @@ h1 {
   line-height: 1em;
   margin-top: 0;
   color: #4c4c4c;
-  font-variant-numeric: lining-nums;
 }
 
 .title {
@@ -125,7 +113,7 @@ h2 {
   font-weight: lighter;
   line-height: 8pt;
   font-variant: small-caps;
-  /*margin-top: 10%;*/
+  margin-top: 10%;
 }
 
 h3 {
@@ -147,64 +135,27 @@ body {
   display: flex;
 }
 
-svg {
-  background-color: #E1E2E5;
-  padding-left: 6%;
-  padding-right: 2%;
-  padding-bottom: 6%;
-  padding-top: 2%;
+img {
+  /*height: 40%;*/
+  width:75%;
 }
 
-.label {
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 0.8em;
-  font-variant-numeric: lining-nums;
+#canvas1 {
+        border: 1px dotted #4c4c4c;
+        width: auto;
 
 }
 
-.ticksLabel{
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 0.55em;
-  font-variant-numeric: lining-nums;
-
+#canvas2 {
+        width: auto;
+        background-color: white;
 }
 
-.axisLabel {
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 1.1em;
-  font-variant: small-caps;
-
+#canvas3 {
+        width: auto;
+        /*background-color: white;*/
 }
 
-.credits {
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 0.6em;
-  text-decoration: underline;
-  font-variant: small-caps;
-  font-variant-numeric: lining-nums;
-}
-
-.signature {
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 0.6em;
-  text-decoration: underline;
-  font-variant-numeric: lining-nums;
-}
-
-.tick {
-  stroke: black;
-  stroke-width: 0.1pt;
-}
-
-div.tooltip {
-  position: absolute;
-  width: 85px;
-  height: 30px;
-  pointer-events: none;
-  font-family: 'Raleway', Verdana, sans-serif;
-  font-size: 0.7em;
-  font-variant-numeric: lining-nums;
-  background-color: #E1E2E5;
-  vertical-align: middle;
-
+#canvas4 {
+        width: auto;
 }
