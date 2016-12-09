@@ -3,6 +3,12 @@ var height = 500;
 var radius = 5;
 
 var margin = { top:10, bottom:60, left:25, right:10 }
+var scatterPlot;
+var scaleHRs;
+var scaleGames;
+var svg;
+var data;
+
 
 // Color functions
 var getColor = function(hue, saturation, lightness, alpha) {
@@ -20,42 +26,61 @@ var makeColor = function(d) {
  }; //closing makeColor
 
 //drawing data from CSV file
-d3.csv("dominicanSluggers.csv", function (data) {
-
-draw(data);
-
-var buttonsNest = d3.nest()
+d3.csv("dominicanSluggers.csv", function (_data) {
+  data = _data;
+  draw(data);
+  var buttonsNest = d3.nest()
                     .key( function(d) { return d.player })
                     .entries(data);
+  d3.select(".action_container")
+    .selectAll("button")
+    .data(buttonsNest)
+    .enter()
+    .append("button")
+    .style("background-color", makeColor)
+    .html( function(d) { return d.key } )
+    .on("click", function(d) {
+      var dataFiltered = data.filter( function (e) {
+        return d.key == e.player
+      });
+      updateData(dataFiltered);
+      console.log(data)
+      });
+});
 
-d3.select(".action_container")
-  .selectAll("button")
-  .data(buttonsNest)
-  .enter()
-  .append("button")
-  .style("background-color", makeColor)
-  .html( function(d) { return d.key } )
-  .on("click", function(d) {
-    var dataFiltered = data.filter( function (e) { return d == e.player });
-    draw(dataFiltered)
-    console.log(data)
-  });
 
+function gamesToX(d) { return scaleGames(d.gamesAgainst);}
 
-}) //closing d3.csv
+function hrsToY(d) { return scaleHRs(d.hrsNum);}
 
+function radiusToR(d) { return d.radius; }
 
-var draw = function(dataset) {
+function updateData(d) {
+  scatterPlot = svg.selectAll("circle").data(d);
+  scatterPlot.enter()
+    .append("circle")
+    .merge(scatterPlot)
+      .attr("cx", gamesToX)
+      .attr("cy", hrsToY)
+      .attr("r", radius)
+      .style("stroke", "black")
+      .style("stroke-width", "0.2pt")
+      .style("fill", makeColor);
 
-   var svg = d3.select("svg")
+  scatterPlot.exit().remove();
+};
+
+function draw(dataset) {
+
+   svg = d3.select("svg")
                      .attr("width", width)
                      .attr("height", height);
 
-   var scaleHRs = d3.scaleLinear()
+  scaleHRs = d3.scaleLinear()
                    .domain([0, 75])
                    .range([height - margin.bottom, margin.top]);
 
-   var scaleGames = d3.scaleLinear()
+  scaleGames = d3.scaleLinear()
                      .domain([270, 0])
                      .range([width - margin.right, margin.left ]);
 
@@ -94,29 +119,19 @@ var draw = function(dataset) {
      .attr("class", "axisLabel")
      .text("games against");
 
-   function gamesToX(d) {
-     return scaleGames(d.gamesAgainst);
-                         }
+  scatterPlot = svg.selectAll("circle")
+                   .data(dataset);
 
-   function hrsToY(d) {
-     return scaleHRs(d.hrsNum);
-                       }
+  scatterPlot.enter()
+    .append("circle")
+      .attr("cx", gamesToX)
+      .attr("cy", hrsToY)
+      .attr("r", radius)
+      .style("stroke", "black")
+      .style("stroke-width", "0.2pt")
+      .style("fill", makeColor);
 
-   function radiusToR(d) {
-     return d.radius;
-                          }
-
-   var scatterPlot = svg.selectAll("circle")
-                        .data(dataset)
-                        .enter()
-                        .append("circle");
-
-   var attributes = scatterPlot.attr("cx", gamesToX)
-                               .attr("cy", hrsToY)
-                               .attr("r", radius)
-                               .style("stroke", "black")
-                               .style("stroke-width", "0.2pt")
-                               .style("fill", makeColor);
+  scatterPlot.exit().remove();
 
    var tooltip = d3.select(".chart_container")
                                   .append("div")
