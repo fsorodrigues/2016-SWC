@@ -1,0 +1,37 @@
+var alEast = [
+{
+  "hrsNum": 4,
+  "gamesAgainst": 25,
+  "opponent": "Red Sox",
+  "radius": radius,
+  "color": "red",
+},
+{
+  "hrsNum": 55,
+  "gamesAgainst": 247,
+  "opponent": "Orioles",
+  "radius": radius,
+  "color": "orange",
+},
+{
+  "hrsNum": 62,
+  "gamesAgainst": 251,
+  "opponent": "Blue Jays",
+  "radius": radius,
+  "color": "blue",
+},
+{
+  "hrsNum": 53,
+  "gamesAgainst": 257,
+  "opponent": "Yankees",
+  "radius": radius,
+  "color": "white",
+},
+{
+  "hrsNum": 53,
+  "gamesAgainst": 258,
+  "opponent": "Rays",
+  "radius": radius,
+  "color": "yellow",
+}
+];*/
