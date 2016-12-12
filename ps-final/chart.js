@@ -9,7 +9,6 @@ var scaleGames;
 var svg;
 var data;
 
-
 // Color functions
 var getColor = function(hue, saturation, lightness, alpha) {
    var colorString = "hsla(" +
@@ -21,33 +20,43 @@ var getColor = function(hue, saturation, lightness, alpha) {
  }; //closing getColor
 
 var makeColor = function(d) {
-   // var hue = d.hrsNum;
-   return getColor(210, 70, 50, 0.4);
+   var hue = d.hue;
+   return getColor(hue, 70, 50, 0.4);
  }; //closing makeColor
 
-//drawing data from CSV file
+ var _makeColor = function(d) {
+    var hue = d.hue;
+    return getColor(hue, 70, 50, 0.4);
+  }; // closing makeColor
+
+// drawing data from CSV file
 d3.csv("dominicanSluggers.csv", function (_data) {
+
   data = _data;
-  draw(data);
+
+  drawPlot(data); // calling function to draw circle elements and attributes
+
   var buttonsNest = d3.nest()
-                    .key( function(d) { return d.player })
-                    .entries(data);
-  d3.select(".action_container")
+                      .key( function(d) { return d.player })
+                      .entries(data);
+
+  var buttons = d3.select(".action_container")
     .selectAll("button")
     .data(buttonsNest)
     .enter()
     .append("button")
-    .style("background-color", makeColor)
     .html( function(d) { return d.key } )
-    .on("click", function(d) {
+
+    buttons.attr("background-color", _makeColor)
+           .on("click", function(d) {
       var dataFiltered = data.filter( function (e) {
         return d.key == e.player
-      });
+      }); // closing data.filter
+      drawPlot(data);
       updateData(dataFiltered);
-      console.log(data)
-      });
-});
+    }); // closing .on "click"
 
+}); // closing d3.csv
 
 function gamesToX(d) { return scaleGames(d.gamesAgainst);}
 
@@ -56,30 +65,91 @@ function hrsToY(d) { return scaleHRs(d.hrsNum);}
 function radiusToR(d) { return d.radius; }
 
 function updateData(d) {
+
   scatterPlot = svg.selectAll("circle").data(d);
+
   scatterPlot.enter()
     .append("circle")
+    // .attr("r", 0).transition().duration(150)
     .merge(scatterPlot)
       .attr("cx", gamesToX)
       .attr("cy", hrsToY)
       .attr("r", radius)
-      .style("stroke", "black")
-      .style("stroke-width", "0.2pt")
-      .style("fill", makeColor);
+      .style("fill", makeColor)
 
-  scatterPlot.exit().remove();
-};
+  scatterPlot.exit()
+                  // .transition().duration(50).attr("r", 0)
+             .remove();
 
-function draw(dataset) {
+}; //closing updateData
+
+function drawPlot(dataset) {
 
    svg = d3.select("svg")
                      .attr("width", width)
                      .attr("height", height);
 
+     scatterPlot = svg.selectAll("circle")
+                      .data(dataset);
+
+  drawGrid() // calling function to draw axes, grid, labels and setting up scales
+
+  scatterPlot.enter()
+    .append("circle")
+      .attr("cx", gamesToX)
+      .attr("cy", hrsToY)
+      .attr("r", radius)
+      // .style("stroke", "black")
+      // .style("stroke-width", "0.2pt")
+      .style("fill", makeColor);
+
+      var mouseOver = function(d) {
+                                      tooltip.transition()
+                                             .duration(150)
+                                             .style("opacity", 0.9);
+                                      tooltip.html("<b>" + d.player + "</b>"
+                                                  + "<br/> vs. "
+                                                  + d.opponent
+                                                  + "<br/> HR: "
+                                                  + d.hrsNum
+                                                  + " G: "
+                                                  + d.gamesAgainst)
+                                              .style("left", (d3.event.pageX + 10) + "px")
+                                              .style("top", (d3.event.pageY - 28) + "px");
+
+                                      scatterPlot.style("stroke", "black")
+                                                 .style("stroke-width", "0.2pt");
+                                            };
+
+      var mouseOut = function(d) {
+                                  tooltip.transition()
+                                         .duration(50)
+                                         .style("opacity", 0);
+
+                                  scatterPlot.style("stroke", "none")
+                                 };
+
+      var tooltip = d3.select(".chart_container").selectAll("div")
+                                     .append("div")
+                                     .attr("class", "tooltip")
+                                     .style("opacity", 0);
+
+   var tooltipAnimation = scatterPlot.on("mouseover", mouseOver)
+                                     .on("mouseout", mouseOut);
+
+
+
+}; // closing drawPlots function
+
+// function draws axes, grid, labels and setting up scales
+function drawGrid() {
+
+  //scalling y-axis
   scaleHRs = d3.scaleLinear()
                    .domain([0, 75])
                    .range([height - margin.bottom, margin.top]);
 
+  //scalling x-axis
   scaleGames = d3.scaleLinear()
                      .domain([270, 0])
                      .range([width - margin.right, margin.left ]);
@@ -119,48 +189,4 @@ function draw(dataset) {
      .attr("class", "axisLabel")
      .text("games against");
 
-  scatterPlot = svg.selectAll("circle")
-                   .data(dataset);
-
-  scatterPlot.enter()
-    .append("circle")
-      .attr("cx", gamesToX)
-      .attr("cy", hrsToY)
-      .attr("r", radius)
-      .style("stroke", "black")
-      .style("stroke-width", "0.2pt")
-      .style("fill", makeColor);
-
-  scatterPlot.exit().remove();
-
-   var tooltip = d3.select(".chart_container")
-                                  .append("div")
-                                  .attr("class", "tooltip")
-                                  .style("opacity", 0);
-
-   var mouseOut = function(d) {
-                               tooltip.transition()
-                                      .duration(50)
-                                      .style("opacity", 0);
-                              };
-
-   var mouseOver = function(d) {
-                                   tooltip.transition()
-                                          .duration(150)
-                                          .style("opacity", 0.9);
-                                   tooltip.html("<b>" + d.player + "</b>"
-                                               + "<br/> vs. "
-                                               + d.opponent
-                                               + "<br/> HR: "
-                                               + d.hrsNum
-                                               + " G: "
-                                               + d.gamesAgainst)
-                                           .style("left", (d3.event.pageX + 10) + "px")
-                                           .style("top", (d3.event.pageY - 28) + "px");
-                                         };
-
-   var tooltipAnimation = scatterPlot.on("mouseover", mouseOver)
-                                    .on("mouseout", mouseOut);
-
-
-} //closing draw function
+}; //closing drawGrid
