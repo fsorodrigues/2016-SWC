@@ -25,7 +25,7 @@ var makeColor = function(d) {
  }; //closing makeColor
 
  var _makeColor = function(d) {
-    var hue = d.hue;
+    var hue = d.hue ? d.hue : d.values[0].hue;
     return getColor(hue, 70, 50, 0.4);
   }; // closing makeColor
 
@@ -47,7 +47,7 @@ d3.csv("dominicanSluggers.csv", function (_data) {
     .append("button")
     .html( function(d) { return d.key } )
 
-    buttons.attr("background-color", _makeColor)
+    buttons.style("background-color", _makeColor)
            .on("click", function(d) {
       var dataFiltered = data.filter( function (e) {
         return d.key == e.player
@@ -99,8 +99,6 @@ function drawPlot(dataset) {
       .attr("cx", gamesToX)
       .attr("cy", hrsToY)
       .attr("r", radius)
-      // .style("stroke", "black")
-      // .style("stroke-width", "0.2pt")
       .style("fill", makeColor);
 
       var mouseOver = function(d) {
@@ -116,17 +114,12 @@ function drawPlot(dataset) {
                                                   + d.gamesAgainst)
                                               .style("left", (d3.event.pageX + 10) + "px")
                                               .style("top", (d3.event.pageY - 28) + "px");
-
-                                      scatterPlot.style("stroke", "black")
-                                                 .style("stroke-width", "0.2pt");
                                             };
 
       var mouseOut = function(d) {
                                   tooltip.transition()
                                          .duration(50)
                                          .style("opacity", 0);
-
-                                  scatterPlot.style("stroke", "none")
                                  };
 
       var tooltip = d3.select(".chart_container").selectAll("div")
